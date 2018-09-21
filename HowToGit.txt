@@ -1,9 +1,31 @@
-using git
+Using Git desktop
+
+Pull
+-will get the latest files from github
+-may raise conflicts
+
+Commit
+-will save the current files locally (these files represent a build version)
+-try to put a descriptive Summary of what you changed
+-It's always safe to commit to save your work
+
+Push
+-will push your files (you build version) to github, and overwrite anything that was in there.
+-commits you made will be stored there also.
+
+Merge 
+-will fuse some branch with another branch. All files will be added from both,
+but the files with same name will conflict and those might need resolving.
+
+Revert
+-You can always revert some commit by finding it under "History" and rightclicking it. 
+You can even revert a reverted commit.
+
 
 Getting newest master version from github
 1. Switch to branch master
 2. Repository->pull (this will get the files from cloud to your computer)
-3. Resolve any conflicts
+3. Resolve any conflicts 
 
 To add your work to it
 (you may need to commit the work in master branch first)
@@ -16,5 +38,5 @@ When you want to upload your version to github
 (you may need to commit your work in your branch first)
 7. Switch to branch master
 8. Branch->merge into current branch. Choose your branch to be merged into this branch.
-9. Commit to master (add a descriptive text)
+9. Commit to master (add a descriptive summary)
 10. Repository->push
