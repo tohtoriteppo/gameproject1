@@ -8,11 +8,13 @@ public class enemySpawner : MonoBehaviour {
     public int chanceToSpawn;
     public int maxSpawnCD;
 
+    private int enemyCounter = 0;
     public int enemyAmount;
     private int spawnCounter = 0;
     private Vector2 resolution;
     public List<string> level1enemies;
     public GameObject knight;
+    public GameObject shop;
     //public List<string> level2enemies;
     //public List<string> level3enemies;
     // Use this for initialization
@@ -34,10 +36,15 @@ public class enemySpawner : MonoBehaviour {
                 Vector3 spawnPos = new Vector3(knight.transform.position.x +3, knight.transform.position.y, knight.transform.position.z);
                 Instantiate(Resources.Load("Prefabs/" + level1enemies[whichEnemy]) as GameObject, spawnPos, knight.transform.rotation);
                 spawnCounter = 0;
+                enemyCounter++;
             }
             
         }
         spawnCounter++;
+        if(enemyCounter>enemyAmount)
+        {
+            shop.SetActive(true);
+        }
 
 
     }

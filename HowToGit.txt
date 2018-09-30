@@ -25,7 +25,7 @@ You can even revert a reverted commit.
 Getting newest master version from github
 1. Switch to branch master
 2. Repository->pull (this will get the files from cloud to your computer)
-3. Resolve any conflicts 
+3. Resolve any conflicts
 
 To add your work to it
 (you may need to commit the work in master branch first)
