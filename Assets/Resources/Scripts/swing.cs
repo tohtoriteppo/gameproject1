@@ -34,7 +34,6 @@ public class swing : MonoBehaviour {
         animationCounter = swingCD;
         stunCounter = stunTime;
         whenToSwing = (int)(swingDelay*swingCD);
-        Debug.Log("whenswing "+ whenToSwing);
 
     }
 	
@@ -115,15 +114,22 @@ public class swing : MonoBehaviour {
     {
         col.gameObject.GetComponent<enemyLogic>().swingRange++;
         //Debug.Log("enemy detected "+ col.gameObject.GetComponent<enemyLogic>().swingRange);
-        ObjectsInRange.Add(col.gameObject);
+        if(!ObjectsInRange.Contains(col.gameObject))
+        {
+            ObjectsInRange.Add(col.gameObject);
+        }
+        
     }
     public void OnTriggerExit2D(Collider2D col)
     {
-       // Debug.Log("enemy left");
+        // Debug.Log("enemy left");
         //Probably you'll have to calculate which object it is
-        ObjectsInRange.Remove(col.gameObject);
+        if (ObjectsInRange.Contains(col.gameObject))
+        {
+            ObjectsInRange.Remove(col.gameObject);
+        }
     }
-    
+
     //normal swing
     void normalSwing()
     {
@@ -147,6 +153,7 @@ public class swing : MonoBehaviour {
     void bigSwing()
     {
         bool hit = false;
+        Debug.Log(ObjectsInRange.Count);
         foreach (GameObject obj in ObjectsInRange)
         {
             Debug.Log(obj.tag);

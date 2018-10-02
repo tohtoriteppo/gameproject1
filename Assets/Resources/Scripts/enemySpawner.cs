@@ -7,14 +7,15 @@ public class enemySpawner : MonoBehaviour {
     public int spawnCD;
     public int chanceToSpawn;
     public int maxSpawnCD;
+    public List<string> level1enemies;
+    public GameObject wolf;
+    public int enemyAmount;
 
     private int enemyCounter = 0;
-    public int enemyAmount;
     private int spawnCounter = 0;
+    private bool levelStarted = false;
+    private GameObject[] enemies;
     private Vector2 resolution;
-    public List<string> level1enemies;
-    public GameObject knight;
-    public GameObject shop;
     //public List<string> level2enemies;
     //public List<string> level3enemies;
     // Use this for initialization
@@ -26,26 +27,44 @@ public class enemySpawner : MonoBehaviour {
 	void Update () {
 		
         //if enough time has passed, spawn an enemy
-        if(spawnCounter > spawnCD)
+        if(levelStarted)
         {
-            int toSpawn= Random.Range(0, 100);
-            if(toSpawn <= chanceToSpawn || spawnCounter > maxSpawnCD)
+            if (spawnCounter > spawnCD)
             {
-                int whichEnemy = Random.Range(0, level1enemies.Count);
-                
-                Vector3 spawnPos = new Vector3(knight.transform.position.x +3, knight.transform.position.y, knight.transform.position.z);
-                Instantiate(Resources.Load("Prefabs/" + level1enemies[whichEnemy]) as GameObject, spawnPos, knight.transform.rotation);
-                spawnCounter = 0;
-                enemyCounter++;
+                int toSpawn = Random.Range(0, 100);
+                if (toSpawn <= chanceToSpawn || spawnCounter > maxSpawnCD)
+                {
+                    int whichEnemy = Random.Range(0, level1enemies.Count);
+                    Vector3 spawnPos = new Vector3(wolf.transform.position.x + 3, wolf.transform.position.y, wolf.transform.position.z);
+                    Instantiate(Resources.Load("Prefabs/" + level1enemies[whichEnemy]) as GameObject, spawnPos, wolf.transform.rotation);
+                    spawnCounter = 0;
+                    enemyCounter++;
+                }
+
             }
-            
+            spawnCounter++;
+            //level ends
+            if (enemyCounter > enemyAmount)
+            {
+                endLevel();
+            }
         }
-        spawnCounter++;
-        if(enemyCounter>enemyAmount)
+
+    }
+
+    public void startLevel(int levelNumber)
+    {
+        levelStarted = true;
+    }
+    private void endLevel()
+    {
+        enemyCounter = 0;
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
+        for(int i = 0; i < enemies.Length; i++)
         {
-            shop.SetActive(true);
+            Destroy(enemies[i]);
         }
-
-
+        GetComponent<gameController>().levelEnded();
+        levelStarted = false;
     }
 }

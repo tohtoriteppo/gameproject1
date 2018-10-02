@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: ac821efe0ab91cf40893979b645e9815
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Backdrop Item
+    100002: Camera
+    100004: Directional Light
+    100006: head
+    100008: Hips
+    100010: Jaw
+    100012: Jaw_end
+    100014: Neck
+    100016: R_Finger
+    100018: R_Finger (2)
+    100020: R_FingerEnd
+    100022: R_FingerEnd (2)
+    100024: R_Foot
+    100026: R_Foot (2)
+    100028: R_Hand
+    100030: R_Hand (2)
+    100032: R_LowerArm
+    100034: R_LowerArm (2)
+    100036: R_LowerLeg
+    100038: R_LowerLeg (2)
+    100040: R_Shoulder
+    100042: R_Shoulder (2)
+    100044: R_Toe
+    100046: R_Toe (2)
+    100048: R_ToeEnd
+    100050: R_ToeEnd (2)
+    100052: R_Upperarm
+    100054: R_Upperarm (2)
+    100056: R_UpperLeg
+    100058: R_UpperLeg (2)
+    100060: Skeleton_Joint (12)
+    100062: Spine2
+    100064: Spine_1
+    100066: Tail_1
+    100068: Tail_2
+    100070: //RootNode
+    100072: wolfie
+    400000: Backdrop Item
+    400002: Camera
+    400004: Directional Light
+    400006: head
+    400008: Hips
+    400010: Jaw
+    400012: Jaw_end
+    400014: Neck
+    400016: R_Finger
+    400018: R_Finger (2)
+    400020: R_FingerEnd
+    400022: R_FingerEnd (2)
+    400024: R_Foot
+    400026: R_Foot (2)
+    400028: R_Hand
+    400030: R_Hand (2)
+    400032: R_LowerArm
+    400034: R_LowerArm (2)
+    400036: R_LowerLeg
+    400038: R_LowerLeg (2)
+    400040: R_Shoulder
+    400042: R_Shoulder (2)
+    400044: R_Toe
+    400046: R_Toe (2)
+    400048: R_ToeEnd
+    400050: R_ToeEnd (2)
+    400052: R_Upperarm
+    400054: R_Upperarm (2)
+    400056: R_UpperLeg
+    400058: R_UpperLeg (2)
+    400060: Skeleton_Joint (12)
+    400062: Spine2
+    400064: Spine_1
+    400066: Tail_1
+    400068: Tail_2
+    400070: //RootNode
+    400072: wolfie
+    2000000: Camera
+    2100000: Default
+    2300000: wolfie
+    3300000: wolfie
+    4300000: wolfie
+    7400000: Take 001
+    9500000: //RootNode
+    10800000: Directional Light
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
