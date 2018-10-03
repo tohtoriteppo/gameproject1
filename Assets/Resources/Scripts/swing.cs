@@ -17,11 +17,12 @@ public class swing : MonoBehaviour {
     private int animationCounter = 0;
     private int whenToSwing;
     private bool holdingPossible = true;
-    private float swingChange = 0.4f;
+    private float swingChange = 0.35f;
     private bool bigSwingAnimation = false;
     private bool normalSwingAnimation = false;
     private List<GameObject> ObjectsInRange = new List<GameObject>();
 
+    public Animator animator;
     public GameObject food;
     public GameObject weapon;
     public GameObject holdSlider;
@@ -34,6 +35,7 @@ public class swing : MonoBehaviour {
         animationCounter = swingCD;
         stunCounter = stunTime;
         whenToSwing = (int)(swingDelay*swingCD);
+        
 
     }
 	
@@ -41,7 +43,7 @@ public class swing : MonoBehaviour {
 	void Update () {
         if(stunCounter < stunTime)
         {
-            weapon.transform.position = new Vector3(weapon.transform.position.x, transform.position.y - 0.1f, weapon.transform.position.z);
+            weapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, weapon.transform.position.z);
             stunCounter++;
         }
         //The frame user hits
@@ -54,6 +56,7 @@ public class swing : MonoBehaviour {
                 animationCounter = 0;
                 holdingPossible = true;
                 normalSwingAnimation = true;
+                animator.SetBool("swing", true);
             }
         }
         //User keeps pressing
@@ -68,6 +71,8 @@ public class swing : MonoBehaviour {
             {
                 Debug.Log("HUGE SWING " + holdCounter);
                 normalSwingAnimation = false;
+                animator.SetBool("big swing", true);
+                animator.SetBool("swing", false);
                 animationCounter = 0;
             }
             holdCounter = Mathf.Max(0, holdCounter-2);
@@ -83,9 +88,17 @@ public class swing : MonoBehaviour {
             //weapon.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
             animationCounter++;
         }
+        
         else if(stunCounter >= stunTime)
         {
             weapon.transform.position = new Vector3(transform.position.x, transform.position.y, weapon.transform.position.z);
+            animator.SetBool("miss", false);
+        }
+        //might need to change place
+        else
+        {
+            animator.SetBool("swing", false);
+            animator.SetBool("big swing", false);
         }
 
         //animations for normal swing
@@ -96,14 +109,14 @@ public class swing : MonoBehaviour {
             if (normalSwingAnimation)
             {
                 //normal swing animation
-                weapon.transform.position = new Vector3(weapon.transform.position.x + swingChange, weapon.transform.position.y, weapon.transform.position.z);
+                weapon.transform.position = new Vector3(transform.position.x + swingChange, weapon.transform.position.y, weapon.transform.position.z);
 
                 normalSwing();
             }
             else
             {
                 //big swing animation
-                weapon.transform.position = new Vector3(weapon.transform.position.x + swingChange*2, weapon.transform.position.y, weapon.transform.position.z);
+                weapon.transform.position = new Vector3(transform.position.x + swingChange*2, weapon.transform.position.y, weapon.transform.position.z);
 
                 bigSwing();
             }
@@ -140,7 +153,7 @@ public class swing : MonoBehaviour {
             if (obj.tag == "enemy" && obj.GetComponent<enemyLogic>().swingRange == 2)
             {
 
-                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + obj.GetComponent<enemyLogic>().prize*weapon.GetComponent<weaponLogic>().foodMultiplier).ToString();
+                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + (int) (obj.GetComponent<enemyLogic>().prize*weapon.GetComponent<weaponLogic>().foodMultiplier)).ToString();
                 enemyHit(obj);
                 hit = true;
             }
@@ -160,7 +173,7 @@ public class swing : MonoBehaviour {
             if (obj.tag == "enemy" && obj.GetComponent<enemyLogic>().swingRange >= 1)
             {
 
-                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + obj.GetComponent<enemyLogic>().prize * weapon.GetComponent<weaponLogic>().foodMultiplier + bigSwingBonus).ToString();
+                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + (int) (obj.GetComponent<enemyLogic>().prize * weapon.GetComponent<weaponLogic>().foodMultiplier + bigSwingBonus)).ToString();
                 enemyHit(obj);
                 hit = true;
             }
@@ -177,5 +190,6 @@ public class swing : MonoBehaviour {
         tmp.a = 0.5f;
         obj.GetComponent<SpriteRenderer>().color = tmp;
         obj.GetComponent<enemyLogic>().prize = 0;
+        obj.GetComponent<enemyLogic>().hit = true;
     }
 }
