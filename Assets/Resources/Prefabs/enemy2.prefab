@@ -121,7 +121,7 @@ MonoBehaviour:
   prize: 2
   swingRange: 0
   movingSpeed: 0
-  animator: {fileID: 0}
+  animator: {fileID: 95955808725460676}
   hit: 0
 --- !u!212 &212553029585874220
 SpriteRenderer:

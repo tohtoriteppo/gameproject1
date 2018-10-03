@@ -17,7 +17,7 @@ public class swing : MonoBehaviour {
     private int animationCounter = 0;
     private int whenToSwing;
     private bool holdingPossible = true;
-    private float swingChange = 0.4f;
+    private float swingChange = 0.35f;
     private bool bigSwingAnimation = false;
     private bool normalSwingAnimation = false;
     private List<GameObject> ObjectsInRange = new List<GameObject>();
@@ -45,7 +45,6 @@ public class swing : MonoBehaviour {
         {
             weapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, weapon.transform.position.z);
             stunCounter++;
-            Debug.Log("PITÄS");
         }
         //The frame user hits
         if(Input.GetButtonDown("Fire1") && stunCounter >= stunTime)
@@ -154,7 +153,7 @@ public class swing : MonoBehaviour {
             if (obj.tag == "enemy" && obj.GetComponent<enemyLogic>().swingRange == 2)
             {
 
-                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + obj.GetComponent<enemyLogic>().prize*weapon.GetComponent<weaponLogic>().foodMultiplier).ToString();
+                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + (int) (obj.GetComponent<enemyLogic>().prize*weapon.GetComponent<weaponLogic>().foodMultiplier)).ToString();
                 enemyHit(obj);
                 hit = true;
             }
@@ -174,7 +173,7 @@ public class swing : MonoBehaviour {
             if (obj.tag == "enemy" && obj.GetComponent<enemyLogic>().swingRange >= 1)
             {
 
-                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + obj.GetComponent<enemyLogic>().prize * weapon.GetComponent<weaponLogic>().foodMultiplier + bigSwingBonus).ToString();
+                food.GetComponent<Text>().text = (int.Parse(food.GetComponent<Text>().text) + (int) (obj.GetComponent<enemyLogic>().prize * weapon.GetComponent<weaponLogic>().foodMultiplier + bigSwingBonus)).ToString();
                 enemyHit(obj);
                 hit = true;
             }
