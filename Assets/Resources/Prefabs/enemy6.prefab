@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61501016549179990}
   - component: {fileID: 50988844016984128}
   - component: {fileID: 114533622744068280}
+  - component: {fileID: 95131399884511304}
   m_Layer: 0
   m_Name: enemy6
   m_TagString: enemy
@@ -88,6 +89,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!95 &95131399884511304
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281395215096000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 741e627e3c673384db6a1ff44e02dc16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114533622744068280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +121,8 @@ MonoBehaviour:
   prize: 1
   swingRange: 0
   movingSpeed: 2
+  animator: {fileID: 95131399884511304}
+  hit: 0
 --- !u!212 &212241542164667896
 SpriteRenderer:
   m_ObjectHideFlags: 1

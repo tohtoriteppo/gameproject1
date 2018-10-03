@@ -15,7 +15,7 @@ public class movement : MonoBehaviour {
 	void Update () {
         transform.position = new Vector3(transform.position.x+moveSpeed*0.01f, transform.position.y, transform.position.z);
         Camera.main.transform.position = new Vector3(transform.position.x+1f, transform.position.y+0.4f, Camera.main.transform.position.z);
-        GetComponent<swing>().weapon.transform.position = new Vector3(transform.position.x, transform.position.y, GetComponent<swing>().weapon.transform.position.z);
+        //<swing>().weapon.transform.position = new Vector3(GetComponent<swing>().weapon.transform.position.x, GetComponent<swing>().weapon.transform.position.y, GetComponent<swing>().weapon.transform.position.z);
 
     }
 }
