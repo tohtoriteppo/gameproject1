@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 8e3dd2ff23d94fb43b7131edfea53b0d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Cameraguides
+    100004: cart_pumpkin
+    100006: clouds
+    100008: Directional Light
+    100010: faraway
+    100012: Fence
+    100014: Head
+    100016: HeadEnd
+    100018: Hips
+    100020: house
+    100022: House_pig
+    100024: House_pig_base
+    100026: L_Finger
+    100028: L_FingerEnd
+    100030: L_Foot
+    100032: L_FootEnd
+    100034: 'L_FootEnd '
+    100036: L_Hand
+    100038: L_LowerArm
+    100040: 'L_LowerArm '
+    100042: L_LowerLeg
+    100044: L_Shoulder
+    100046: L_UpperArm
+    100048: L_Upperleg
+    100050: lemonadestand
+    100052: Light
+    100054: //RootNode
+    100056: Mesh
+    100058: Neck
+    100060: pebble
+    100062: pig_walk
+    100064: pig_withbottles
+    100066: Pub
+    100068: Pub_base
+    100070: pumpkin_pile
+    100072: R_Finger
+    100074: R_FingerEnd
+    100076: R_Foot
+    100078: R_Hand
+    100080: R_LowerLeg
+    100082: R_Shoulder
+    100084: R_UpperArm
+    100086: R_Upperleg
+    100088: sky
+    100090: Spine1
+    100092: Texture Group
+    100094: under
+    400000: Camera
+    400002: Cameraguides
+    400004: cart_pumpkin
+    400006: clouds
+    400008: Directional Light
+    400010: faraway
+    400012: Fence
+    400014: Head
+    400016: HeadEnd
+    400018: Hips
+    400020: house
+    400022: House_pig
+    400024: House_pig_base
+    400026: L_Finger
+    400028: L_FingerEnd
+    400030: L_Foot
+    400032: L_FootEnd
+    400034: 'L_FootEnd '
+    400036: L_Hand
+    400038: L_LowerArm
+    400040: 'L_LowerArm '
+    400042: L_LowerLeg
+    400044: L_Shoulder
+    400046: L_UpperArm
+    400048: L_Upperleg
+    400050: lemonadestand
+    400052: Light
+    400054: //RootNode
+    400056: Mesh
+    400058: Neck
+    400060: pebble
+    400062: pig_walk
+    400064: pig_withbottles
+    400066: Pub
+    400068: Pub_base
+    400070: pumpkin_pile
+    400072: R_Finger
+    400074: R_FingerEnd
+    400076: R_Foot
+    400078: R_Hand
+    400080: R_LowerLeg
+    400082: R_Shoulder
+    400084: R_UpperArm
+    400086: R_Upperleg
+    400088: sky
+    400090: Spine1
+    400092: Texture Group
+    400094: under
+    2000000: Camera
+    2100000: brown
+    2100002: pub_wall
+    2100004: pub_window
+    2100006: blackmetal
+    2100008: pub_brown
+    2100010: wolf_black
+    2100012: Default
+    2100014: Path
+    2100016: Path_2
+    2100018: feher_szeru
+    2100020: light
+    2100022: green
+    2100024: pumpkin
+    2100026: pumpkin_node
+    2100028: white
+    2100030: atmenet
+    2100032: ground
+    2100034: piros
+    2100036: lemonadestand
+    2100038: blue
+    2100040: yellow
+    2100042: yellow_light
+    2100044: steel
+    2100046: okker
+    2100048: pig_skin
+    2100050: pig_hat
+    2300000: Cameraguides
+    2300002: cart_pumpkin
+    2300004: clouds
+    2300006: faraway
+    2300008: Fence
+    2300010: house
+    2300012: House_pig
+    2300014: House_pig_base
+    2300016: lemonadestand
+    2300018: Light
+    2300020: Mesh
+    2300022: pebble
+    2300024: Pub
+    2300026: Pub_base
+    2300028: pumpkin_pile
+    2300030: sky
+    2300032: under
+    3300000: Cameraguides
+    3300002: cart_pumpkin
+    3300004: clouds
+    3300006: faraway
+    3300008: Fence
+    3300010: house
+    3300012: House_pig
+    3300014: House_pig_base
+    3300016: lemonadestand
+    3300018: Light
+    3300020: Mesh
+    3300022: pebble
+    3300024: Pub
+    3300026: Pub_base
+    3300028: pumpkin_pile
+    3300030: sky
+    3300032: under
+    4300000: Pub
+    4300002: Pub_base
+    4300004: clouds
+    4300006: pebble
+    4300008: Light
+    4300010: Mesh
+    4300012: cart_pumpkin
+    4300014: pumpkin_pile
+    4300016: Fence
+    4300018: sky
+    4300020: under
+    4300022: Cameraguides
+    4300024: lemonadestand
+    4300026: faraway
+    4300028: House_pig
+    4300030: House_pig_base
+    4300032: house
+    4300034: pig_withbottles
+    7400000: Take 001
+    9500000: //RootNode
+    10800000: Directional Light
+    13700000: pig_withbottles
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

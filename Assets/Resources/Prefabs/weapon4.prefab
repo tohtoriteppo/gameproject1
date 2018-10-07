@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4c710f0533b0b4391e3f9a3a8f7b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodMultiplier: 3
-  price: 40
+  weaponBonus: 12
+  price: 300
 --- !u!212 &212153774422034902
 SpriteRenderer:
   m_ObjectHideFlags: 1

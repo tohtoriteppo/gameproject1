@@ -11,10 +11,9 @@ public class screenLogic : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		if(Input.GetButtonDown("Fire1"))
         {
-            gameObject.SetActive(false);
             controller.feedBackDone();
         }
 	}
