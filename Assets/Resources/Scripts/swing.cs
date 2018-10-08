@@ -19,12 +19,15 @@ public class swing : MonoBehaviour {
     private List<GameObject> ObjectsInRange = new List<GameObject>();
     private int maxHold = 60;
     private int stunTime = 120;
+    private float colliderSize1 = 1;
+    private float colliderSize2 = 1.25f;
 
     public int originalMaxHold = 60;
     public int swingCD = 60;
     public int bigSwingBonus = 5;
     public int originalStunTime = 120;
     public Animator animator;
+    public List<RuntimeAnimatorController> controllers;
     public GameObject weapon;
     public GameObject holdSlider;
     public bool amulet = false;
@@ -40,7 +43,7 @@ public class swing : MonoBehaviour {
         animationCounter = swingCD;
         stunCounter = stunTime;
         whenToSwing = (int)(swingDelay*swingCD);
-        
+        setHitBoxes();
 
     }
 	
@@ -65,6 +68,7 @@ public class swing : MonoBehaviour {
                     holdingPossible = true;
                     normalSwingAnimation = true;
                     animator.SetBool("swing", true);
+                    whenToSwing = (int)(swingDelay * swingCD);
                 }
             }
             //User keeps pressing
@@ -80,6 +84,7 @@ public class swing : MonoBehaviour {
                     normalSwingAnimation = false;
                     animator.SetBool("big swing", true);
                     animator.SetBool("swing", false);
+                    whenToSwing = (int)(swingCD*10);
                     animationCounter = 0;
                 }
                 holdCounter = Mathf.Max(0, holdCounter - 2);
@@ -258,6 +263,7 @@ public class swing : MonoBehaviour {
         if(!hit)
         {
             stunCounter = 0;
+            animator.SetBool("miss", true);
             //holdingPossible = false;
         }
     }
@@ -273,21 +279,23 @@ public class swing : MonoBehaviour {
                 spawnCrumbs(amount, obj);
                 //Camera.main.GetComponent<gameController>().updateFoodAmount(amount);
                 enemyHit(obj);
+                obj.GetComponent<Animator>().SetBool("hit", true);
                 hit = true;
             }
         }
         if (!hit)
         {
             stunCounter = 0;
+            animator.SetBool("miss", true);
             //holdingPossible = false;
         }
     }
     //enemy hit animation and other logic
     void enemyHit(GameObject obj)
     {
-        Color tmp = obj.GetComponent<SpriteRenderer>().color;
-        tmp.a = 0.5f;
-        obj.GetComponent<SpriteRenderer>().color = tmp;
+        //Color tmp = obj.GetComponent<SpriteRenderer>().color;
+        //tmp.a = 0.5f;
+        //obj.GetComponent<SpriteRenderer>().color = tmp;
         obj.GetComponent<enemyLogic>().prize = 0;
         obj.GetComponent<enemyLogic>().hit = true;
 
@@ -321,6 +329,18 @@ public class swing : MonoBehaviour {
     {
         animator.SetBool("big swing", false);
         animator.SetBool("swing", false);
-        animator.SetBool("miss", false);
+        //animator.SetBool("miss", false);
+    }
+    
+    public void setHitBoxes()
+    {
+        BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
+        float multiplier = weapon.GetComponent<weaponLogic>().hitBoxMultiplier;
+        float change1 =  (multiplier * colliderSize1 - colliders[0].size.x)/2;
+        float change2 = (multiplier * colliderSize1 +0.25f - colliders[1].size.x)/2;
+        colliders[0].size = new Vector2(multiplier * colliderSize1, colliders[0].size.y);
+        colliders[1].size = new Vector2(multiplier * colliderSize1 + 0.25f, colliders[1].size.y);
+        colliders[0].offset = new Vector2(colliders[0].offset.x + change1, colliders[0].offset.y);
+        colliders[1].offset = new Vector2(colliders[1].offset.x + change2, colliders[1].offset.y);
     }
 }

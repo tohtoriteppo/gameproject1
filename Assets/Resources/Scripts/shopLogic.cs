@@ -73,9 +73,12 @@ public class shopLogic : MonoBehaviour {
     public void BuySelectedItem()
     {
         GetComponent<gameController>().updateFoodAmount(-newWeapon.GetComponent<weaponLogic>().price);
-        if(isWeapon)
+        if (isWeapon)
         {
             wolf.GetComponent<swing>().weapon = newWeapon;
+            wolf.GetComponent<swing>().setHitBoxes();
+            int which = int.Parse(selectedItem.Substring(6, 1));
+            wolf.GetComponent<swing>().animator.runtimeAnimatorController = wolf.GetComponent<swing>().controllers[which-1];
             for (int i = 0; i < 5; i++)
             {
                 shop.transform.GetChild(i).GetComponent<Button>().interactable = false;
@@ -84,17 +87,19 @@ public class shopLogic : MonoBehaviour {
                     break;
                 }
             }
+            Destroy(oldWeapon);
         }
         else
         {
             shop.transform.Find(selectedItem).GetComponent<Button>().interactable = false;
             SetItem();
         }
+        newWeapon.SetActive(false);
         buyWindow.SetActive(false);
         
         //shop.transform.Find(selectedItem).GetComponent<Button>().interactable = false;
         doneButton.GetComponent<Button>().interactable = true;
-        Destroy(oldWeapon);
+        
 
     }
 

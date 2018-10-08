@@ -7,4 +7,8 @@ AnimatorOverrideController:
   m_PrefabInternal: {fileID: 0}
   m_Name: ctr_enemy4
   m_Controller: {fileID: 9100000, guid: 5e0a245ffced9a946a6dd8d9d0dc2c79, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c4c5adcf45539f34b803ecea52b6033d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c4c5adcf45539f34b803ecea52b6033d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84b7920d363279241823b94190e4e899, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 84b7920d363279241823b94190e4e899, type: 2}

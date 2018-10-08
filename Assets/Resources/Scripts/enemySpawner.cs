@@ -17,7 +17,7 @@ public class enemySpawner : MonoBehaviour {
 
     private int timeCounter = 0;
     private int timeLimit = 0;
-    private int enemyCounter = 0;
+    private int enemyCounter = 1;
     private int spawnCounter = 0;
     //private bool levelStarted = false;
     private GameObject[] enemies;
@@ -51,7 +51,7 @@ public class enemySpawner : MonoBehaviour {
                 if (toSpawn <= chanceToSpawn || spawnCounter > maxSpawnCD)
                 {
                     int whichEnemy = Random.Range(0, level1enemies.Count);
-                    Vector3 spawnPos = new Vector3(wolf.transform.position.x + 3, wolf.transform.position.y, wolf.transform.position.z);
+                    Vector3 spawnPos = new Vector3(wolf.transform.position.x + 3, wolf.transform.position.y, wolf.transform.position.z+enemyCounter*0.01f);
                     Instantiate(Resources.Load("Prefabs/" + level1enemies[whichEnemy]) as GameObject, spawnPos, wolf.transform.rotation);
                     spawnCounter = 0;
                     enemyCounter++;

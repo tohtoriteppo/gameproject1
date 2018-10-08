@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBonus: 5
   price: 150
+  hitBoxMultiplier: 0.69
 --- !u!212 &212153774422034902
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e0ae6b90f8288a42bfd8d54327bae50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adfc85a0cc044004abb9ea023b835a47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
