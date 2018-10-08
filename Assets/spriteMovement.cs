@@ -6,9 +6,10 @@ public class spriteMovement : MonoBehaviour {
 
     public float moveSpeed;
     private int num = 4;
-	// Use this for initialization
-	void Start () {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+ num*moveSpeed);
+    private float yPos = 0.7f;
+    // Use this for initialization
+    void Start () {
+        transform.position = new Vector3(transform.position.x, transform.position.y + yPos * moveSpeed - 0.4f, transform.position.z+ num * moveSpeed);
     }
 	
 	// Update is called once per frame

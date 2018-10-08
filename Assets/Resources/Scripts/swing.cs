@@ -12,7 +12,7 @@ public class swing : MonoBehaviour {
     private int stunCounter = 0;
     private int animationCounter = 0;
     private int whenToSwing;
-    private bool holdingPossible = true;
+    private bool holdingPossible = false;
     private float swingChange = 0.35f;
     private bool bigSwingAnimation = false;
     private bool normalSwingAnimation = false;
@@ -22,6 +22,8 @@ public class swing : MonoBehaviour {
     private float colliderSize1 = 1;
     private float colliderSize2 = 1.25f;
 
+    public ParticleSystem particleSystem;
+    public GameObject system;
     public int originalMaxHold = 60;
     public int swingCD = 60;
     public int bigSwingBonus = 5;
@@ -304,7 +306,8 @@ public class swing : MonoBehaviour {
     void spawnCrumbs(int amount, GameObject obj)
     {
         //Debug.Log("SWPANANA");
-        while(amount >= 5)
+        Instantiate(system, obj.transform.position, obj.transform.rotation);
+        while (amount >= 5)
         {
             GameObject carrot = Instantiate(Resources.Load("Prefabs/carrot") as GameObject, obj.transform.position, obj.transform.rotation);
             carrot.GetComponent<BoxCollider2D>().enabled = false;
