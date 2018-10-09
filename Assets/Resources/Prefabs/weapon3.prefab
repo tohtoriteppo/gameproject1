@@ -73,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4c710f0533b0b4391e3f9a3a8f7b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodMultiplier: 2.5
-  price: 30
+  weaponBonus: 9
+  price: 250
+  hitBoxMultiplier: 0.81
 --- !u!212 &212153774422034902
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ea512e60cc2ae864d96518e69a2b646c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64d37d5281317514e839f6b44bebe890, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

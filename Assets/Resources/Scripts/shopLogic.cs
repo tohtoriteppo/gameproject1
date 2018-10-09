@@ -13,10 +13,11 @@ public class shopLogic : MonoBehaviour {
     public GameObject buyWindowPrice;
     public GameObject buyButton;
 
+    private bool isWeapon;
     private GameObject oldWeapon;
     private GameObject newWeapon;
 
-    private string selectedWeapon;
+    private string selectedItem;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,13 +32,34 @@ public class shopLogic : MonoBehaviour {
     {
         buyWindow.SetActive(true);
         doneButton.GetComponent<Button>().interactable = false;
-        selectedWeapon = weapon;
+        selectedItem = weapon;
         oldWeapon = wolf.GetComponent<swing>().weapon;
-        newWeapon = Instantiate(Resources.Load("Prefabs/" + selectedWeapon) as GameObject, oldWeapon.transform.position, oldWeapon.transform.rotation);
+        newWeapon = Instantiate(Resources.Load("Prefabs/" + selectedItem) as GameObject, oldWeapon.transform.position, oldWeapon.transform.rotation);
         buyWindowImage.GetComponent<Image>().sprite = newWeapon.GetComponent<SpriteRenderer>().sprite;
         buyWindowPrice.GetComponent<Text>().text = newWeapon.GetComponent<weaponLogic>().price.ToString();
-        GameObject foodText = GetComponent<enemySpawner>().wolf.GetComponent<swing>().food;
-        if (newWeapon.GetComponent<weaponLogic>().price > int.Parse(foodText.GetComponent<Text>().text))
+        if (newWeapon.GetComponent<weaponLogic>().price > GetComponent<gameController>().food)
+        {
+            buyButton.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            buyButton.GetComponent<Button>().interactable = true;
+        }
+        isWeapon = true;
+
+
+    }
+
+    public void OpenBuyWindow2(string item)
+    {
+        buyWindow.SetActive(true);
+        doneButton.GetComponent<Button>().interactable = false;
+        selectedItem = item;
+        newWeapon = Instantiate(Resources.Load("Prefabs/" + selectedItem) as GameObject);
+        buyWindowImage.GetComponent<Image>().sprite = newWeapon.GetComponent<SpriteRenderer>().sprite;
+        buyWindowPrice.GetComponent<Text>().text = newWeapon.GetComponent<weaponLogic>().price.ToString();
+        isWeapon = false;
+        if (newWeapon.GetComponent<weaponLogic>().price > GetComponent<gameController>().food)
         {
             buyButton.GetComponent<Button>().interactable = false;
         }
@@ -46,18 +68,38 @@ public class shopLogic : MonoBehaviour {
             buyButton.GetComponent<Button>().interactable = true;
         }
 
-
     }
 
     public void BuySelectedItem()
     {
-        
-        GameObject foodText = GetComponent<enemySpawner>().wolf.GetComponent<swing>().food;
-        foodText.GetComponent<Text>().text = (int.Parse(foodText.GetComponent<Text>().text)- newWeapon.GetComponent<weaponLogic>().price).ToString();
-        wolf.GetComponent<swing>().weapon = newWeapon;
+        GetComponent<gameController>().updateFoodAmount(-newWeapon.GetComponent<weaponLogic>().price);
+        if (isWeapon)
+        {
+            wolf.GetComponent<swing>().weapon = newWeapon;
+            wolf.GetComponent<swing>().setHitBoxes();
+            int which = int.Parse(selectedItem.Substring(6, 1));
+            wolf.GetComponent<swing>().animator.runtimeAnimatorController = wolf.GetComponent<swing>().controllers[which-1];
+            for (int i = 0; i < 5; i++)
+            {
+                shop.transform.GetChild(i).GetComponent<Button>().interactable = false;
+                if (shop.transform.GetChild(i).name == newWeapon.name.Substring(0, 7))
+                {
+                    break;
+                }
+            }
+            Destroy(oldWeapon);
+        }
+        else
+        {
+            shop.transform.Find(selectedItem).GetComponent<Button>().interactable = false;
+            SetItem();
+        }
+        newWeapon.SetActive(false);
         buyWindow.SetActive(false);
+        
+        //shop.transform.Find(selectedItem).GetComponent<Button>().interactable = false;
         doneButton.GetComponent<Button>().interactable = true;
-        Destroy(oldWeapon);
+        
 
     }
 
@@ -66,6 +108,31 @@ public class shopLogic : MonoBehaviour {
         doneButton.GetComponent<Button>().interactable = true;
         Destroy(newWeapon);
         buyWindow.SetActive(false);
+    }
+    public void ResetItems()
+    {
+        for (int i = 5; i < 8; i++)
+        {
+            shop.transform.GetChild(i).GetComponent<Button>().interactable = true;
+        }
+        wolf.GetComponent<swing>().amulet = false;
+        wolf.GetComponent<swing>().oil = false;
+        wolf.GetComponent<swing>().potion = false;
+    }
+    public void SetItem()
+    {
+        if(selectedItem == "amulet")
+        {
+            wolf.GetComponent<swing>().amulet = true;
+        }
+        if(selectedItem == "oil")
+        {
+            wolf.GetComponent<swing>().oil = true;
+        }
+        if(selectedItem == "potion")
+        {
+            wolf.GetComponent<swing>().potion = true;
+        }
     }
 
 }

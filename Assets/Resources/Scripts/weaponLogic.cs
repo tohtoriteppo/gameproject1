@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class weaponLogic : MonoBehaviour {
 
-    public float foodMultiplier;
+    public int weaponBonus;
     public int price;
+    public float hitBoxMultiplier;
 
 	// Use this for initialization
 	void Start () {

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499d62217edd2c747b9f9f13e3a3c701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prize: 1
+  prize: 2
   swingRange: 0
   movingSpeed: 2
   animator: {fileID: 95131399884511304}

@@ -24,5 +24,9 @@ public class enemyLogic : MonoBehaviour {
             animator.SetBool("hit", true);
             movingSpeed = 0;
         }
-	}
+        if (transform.position.x < Camera.main.transform.position.x - 2)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
